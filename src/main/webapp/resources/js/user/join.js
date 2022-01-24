@@ -7,6 +7,9 @@ const emailCheckBtn = document.querySelector(".join_email_check");
 const emailAlertMessage = document.querySelector(".join_email_message")
 const addressInput = document.querySelector(".join_address");
 const joinMainBox = document.querySelector(".join_main_box");
+const contextPathInfoElem = document.querySelector(".contextPath");
+
+let contextPathInfo 
 
 
 let httpRequest;
@@ -44,7 +47,7 @@ function makeRequest() {
       return false;
     }
     httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('POST', 'http://localhost:8080/controller/user/checkEmail',false);
+    httpRequest.open('POST', `http://localhost:8080/${contextPathInfo}/user/checkEmail`,false);
 	httpRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
     httpRequest.send(jsonData);
@@ -68,7 +71,7 @@ function alertContents() {
 				emailCheckBtn.value="check"
 				checkCanPushSubmitBtn();
 				emailCheckBtn.addEventListener("click",checkInsertInputValue);
-			})
+			},{once:true})
 			checkCanPushSubmitBtn();
 		}else{
 			emailAlertMessage.innerText = "사용불가능한 이메일 입니다."
@@ -78,6 +81,7 @@ function alertContents() {
       }
     }
   }
+
 
 const checkCanPushSubmitBtn = () =>{
 	if(canUseEamil&&canUsePw){
@@ -110,5 +114,6 @@ const init = () =>{
 }
 
 if(joinMainBox!=null){
+	contextPathInfo = contextPathInfoElem.value;
 	init();	
 }

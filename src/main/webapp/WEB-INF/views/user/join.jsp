@@ -53,7 +53,7 @@
                         <div class="join_main_input_group">
                             <label for="join_input3">이메일*</label>
                             <div class="join_input_group">
-                            <input type="email" id="join_input2" name="email" class="join_email" maxlength="30" required/>
+                            <input type="email" id="join_input3" name="email" class="join_email" maxlength="30" required/>
                             <input type="button" class="join_email_check" value="Check">
                             <div class="join_email_message">이메일을 확인해 주세요</div>
                         </div>
@@ -71,6 +71,7 @@
                             <input type="text" id="join_input6" name="address" class="join_address"/>
                         </div>
                         <input type="submit" class="join_submit" value="Join" disabled />
+                        <input type="hidden" class="contextPath" value="${pageContext.request.contextPath }"/>
                     </form>
                     <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=d1f2c7c111ea44b0957fc9dbf10a601f&redirect_uri=http://localhost:8080/controller/kakao/kakaoJoin&prompt=login
                             " class="join_kakao">

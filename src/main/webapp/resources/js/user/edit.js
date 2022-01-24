@@ -85,7 +85,7 @@ function makeRequest() {
       return false;
     }
     httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('POST', 'http://localhost:8080/controller/user/checkEmail',false);
+    httpRequest.open('POST', `http://localhost:8080/${contextPathInfo}/user/checkEmail`,false);
 	httpRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
     httpRequest.send(jsonData);
